@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.sidebar {
+    position: absolute;
+    height: 100vh;
+    width: 90px;
+    padding: 20px;
+    background: var(--sidebar-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
+
+.sidebar header .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar header .image img {
+    margin-top: -12px;
+    width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .menu-bar {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar .icon-home,
+.sidebar .icon-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.sidebar .icon-home img {
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar .icon-logout img {
+    width: 50px;
+    height: 50px;
+    margin-top: auto;
+}
+/********************************/
+.home-page {
+    text-align: center;
+    padding: 8px 0;
+    background: #5582F8;
+}
+.home-page h1 {
+    font-size: 30px;
+    font-weight: 400;
+    color: white;
+}
+/********************************/
+.btn-tpb {
+    padding-top: 22px;
+    padding-left: 129px;
+}
+.pb {
+    background-color: #239393;
+    width: 264px;
+    height: 80px;
+    font-size: 22px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+.pb:hover {
+    color: #000;
+    background-color: #85DEDE;
+}
+.text-filter {
+    padding-top: 31px;
+    padding-left: 129px;
+}
+.text-filter span {
+    font-weight: 400;
+    font-size: 30px;
+}
+.form-filter {
+    font-size: 20px;
+    padding: 0 20px;
+}
+.custom-select-input {
+    padding-top: 31px;
+    padding-left: 129px;
+}
+.select-name {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+.input-search-name {
+    width: 400px;
+    height: 50px;
+    display: flex;
+    float: left;
+    border-radius: 50px;
+    padding-left: 12px;
+    margin-top: -6px;
+    margin-right: 8px;
+    margin-bottom: 24px;
+}
+.icon-reset {
+    margin-top: -8px;
+    float: left;
+}
+.icon-reset img {
+    width: 50px;
+    height: 52px;
+    background-color: #EE7048;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+.icon-search {
+    margin-top: -8px;
+    padding: 0 12px;
+    float: left;
+}
+.icon-search img {
+    height: 52px;
+    width: 50px;
+    background-color: #8CC6C6;
+    padding: 0px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+.icon-search img:hover{
+    background-color: #D2F0F0;
+}
+.icon-reset img:hover{
+    background-color: #EFC5B7;
+}
+/*********************************/
+.list-dspb{
+    padding-top: 31px;
+    padding-left: 112px;
+}
+.table-dspb{
+    width: 98%;
+}
+.head-table{
+    text-align: center;
+    padding: 9px;
+}
+.table-bordered th {
+    font-size: 13px;
+    padding: 8px 8px;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid #333;
+}
+.h1 .i-edit {
+    padding: 6px 6px;
+    background-color: #E3AC6C;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-flex;
+    transition: .2s linear;
+}
+.bx-trash,
+.bx-edit{
+    font-size: 16px;
+}
+.h1 .i-rotate{
+   
+    padding: 6px 6px;
+    background-color: #E53535;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s linear;
+}
+
+.i-rotate:hover{
+    background-color: #F6A3A3;
+}
+.i-save img:hover{
+    background-color: #ACDFAB;
+}
+.i-edit:hover{
+    background-color: #F4D6B2;
+}
+
+/* ******* Modal xóa  ******  */
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    display: none;
+}
+.modal.open{
+    display: flex;
+}
+.modal-container{
+    background-color: #fff;
+    height: 254px;
+    width: 517px;
+    border-radius: 10px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+    animation: modalFadeIn ease 0.5s;
+}
+.modal-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #333;
+    padding: 12px;
+    cursor: pointer;
+}
+.modal-close:hover{
+    color: #000;
+    opacity: 1;
+    background-color: #ccc;
+}
+
+.Update-successful h2{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    padding-top: 65px;
+}
+/* .icon-successfull img{
+    padding: 16px;
+    width: 73px;
+    height: 73px;
+   
+} */
+.modal-buttons {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.confirm-btn{
+  background-color: #83B8EA;
+  border: none;
+  border-radius: 0px 0px 0px 10px;
+  font-size: 30px;
+  color: #fff;
+  width: 50%;
+  height: 100px;
+}
+.cancel-btn{
+  background-color: #F06868;
+  border: none;
+  border-radius: 0px 0px 10px 0px;
+  font-size: 30px;
+  color: #fff;
+  width: 50%;
+  height: 100px;
+}
+.confirm-btn:hover {opacity: 0.6}
+.cancel-btn:hover {opacity: 0.6}
+@keyframes modalFadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-140px);
+
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
