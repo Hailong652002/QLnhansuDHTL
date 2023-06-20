@@ -116,20 +116,32 @@ body {
     padding-right: 10px;
     border: 1px solid #333;
 }
-.btn-tmnv{
-    display: block;
+
+.button-group{
     float: right;
-    margin-top: 15%;
-    margin-right: 25%;
+    margin-top: 20%;
+    margin-right: 15%;
 }
+
 .text-xacnhan-tmnv{
     font-size: 20px;
-    padding: 15px 50px;
     background-color:#428BCA;
     border-radius: 10px;
     border: none;
+    padding: 15px 50px;
+    margin-right: 50px;
 }
-
+.text-huy-tmnv{
+    font-size: 20px;
+    padding: 15px 75px;
+    margin-right: -50px;
+    background-color: #DE2929;
+    border-radius: 10px;
+    border: none;
+}
 .text-xacnhan-tmnv:hover{
     background-color: #A5CDEF;
+}
+.text-huy-tmnv:hover{
+    background-color: #F47575;
 }
