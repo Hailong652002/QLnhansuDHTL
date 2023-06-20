@@ -105,7 +105,6 @@ body {
     font-size: 24px;
     font-weight: 600;
 }
-
 .container-btn {
     width: 100%;
 }
@@ -115,7 +114,7 @@ body {
     display: block;
     background-color: #59B747;
     border-radius: 100px;
-    padding: 10px 15px;
+    padding: 12px 96px;
     text-align: center;
     border: none;
     outline: none;
@@ -123,12 +122,14 @@ body {
     font-weight: 500;
     color: #fff;
 }
-
 .forget-pass {
     margin-top: 30px;
     text-align: center;
 }
-
+.container-btn button:hover{
+    background-color:#45E1A9;
+    color: #fff;
+}
 .forget-pass a {
     font-size: 18px;
     color: #797777;
