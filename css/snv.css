@@ -146,3 +146,70 @@ body {
 .text-huy-tmnv:hover{
     background-color: #F47575;
 }
+/***************** modal xác nhận *****************/
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    display: none;
+}
+.modal.open{
+    display: flex;
+}
+.modal-container{
+    background-color: #fff;
+    height: 254px;
+    width: 517px;
+    border-radius: 10px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+    animation: modalFadeIn ease 0.5s;
+}
+.modal-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #333;
+    padding: 12px;
+    cursor: pointer;
+}
+.modal-close:hover{
+    color: #000;
+    opacity: 1;
+    background-color: #ccc;
+}
+
+.Update-successful {
+    text-align: center;
+}
+.icon-successfull img{
+    padding: 16px;
+    width: 73px;
+    height: 73px;
+}
+.Update-successful{
+   position: relative;
+}
+
+.Update-successful img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 90%);
+}
+.Update-successful h2{
+    font-family: initial;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 380%);
+    font-size: 36px;
+    font-weight: 400;
+}
