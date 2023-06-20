@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.sidebar {
+    position: absolute;
+    height: 100vh;
+    width: 90px;
+    padding: 20px;
+    background: var(--sidebar-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Thêm thuộc tính z-index để đặt lớp trên */
+}
+
+.sidebar header .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar header .image img {
+    width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .menu-bar {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar .icon-home,
+.sidebar .icon-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.sidebar .icon-home img {
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar .icon-logout img {
+    width: 50px;
+    height: 50px;
+    margin-top: auto;
+}
+/********************************/
+.home-page {
+    text-align: center;
+    padding: 8px 0;
+    background: #5582F8;
+}
+.home-page h1 {
+    font-size: 40px;
+    font-weight: 400;
+    color: white;
+}
+/* ***************************** */
+.right-inf-tmnv,
+.left-inf-tmnv {
+    padding-left: 9%;
+    padding-top: 115px;
+}
+.label-name{
+    font-size: 30px;
+    font-weight: 600;
+    padding-top: 10%;
+}
+.inp-tmnv{
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #333;
+}
+.btn-tmnv{
+    display: block;
+    float: right;
+    margin-top: 15%;
+    margin-right: 25%;
+}
+.text-xacnhan-tmnv{
+    font-size: 20px;
+    padding: 15px 50px;
+    background-color:#428BCA;
+    border-radius: 10px;
+    border: none;
+}
+
+.text-xacnhan-tmnv:hover{
+    background-color: #A5CDEF;
+}
