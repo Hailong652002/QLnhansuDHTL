@@ -27,9 +27,9 @@
                 <div class="icon-home">
                     <img src="css/img/3910613 1.png" alt="">
                 </div>
-                <div class="icon-logout">
-                   <img src="css/img/logout-8 1.png" alt="">
-                </div>
+                <a href="./qlnv.html" class="icon-logout">
+                   <img src="css/img/5302613 1.png" alt="">
+                </a>
             </div> 
         </nav>
         <div class="home-page">
@@ -42,21 +42,23 @@
                         <div class="label-name">
                             <label>Họ tên:</label>
                         </div>
-                        <input class="inp-tmnv" type="text" name="hoten" id="" >
-
+                        <input class="inp-tmnv" type="text" name="họ tên" id="" >
+                        <div class="div" class="text-danger error-text email_err"></div>
                         <div class="label-name">
                             <label>Giới tính:</label>
                         </div>
-                        <select class="inp-tmnv" name="gioitinh" id="">
+                        <select class="inp-tmnv" name="giới tính" id="">
                             <option value=""></option>
                             <option value="Nam">Nam</option>
                             <option value="Nữ">Nữ</option>
                         </select>
+                        <div class="div" class="text-danger error-text email_err"></div>
 
                         <div class="label-name">
                             <label>CMND:</label>
                         </div>
                         <input class="inp-tmnv" type="number" name="cmnd" id="">
+                        <div class="div" class="text-danger error-text email_err"></div>
                     </form>
                 </div>
                 <div class="col-sm right-inf-tmnv">
@@ -64,25 +66,35 @@
                         <div class="label-name">
                             <label>Email:</label>
                         </div>
-                        <input class="inp-tmnv" type="text" name="hoten" id="" >
+                        <input class="inp-tmnv" type="text" name="Email" id="" >
+                        <div class="div" class="text-danger error-text email_err"></div>
                         <div class="label-name">
                             <label>Chức vụ:</label>
                         </div>
-                        <select class="inp-tmnv" name="chucvu" id="cv" onchange="checkcv()">
+                        <select class="inp-tmnv" name="Chức vụ" id="cv" onchange="checkcv()">
                                 <option value=""></option>
+                                <option value="Trưởng phòng">Trưởng phòng</option>
+                                <option value="Nhân viên">Nhân viên</option>
                         </select>
+                        <div class="div" class="text-danger error-text email_err"></div>
                         <div class="label-name">
                             <label>Phòng ban:</label>
                         </div>
-                        <select class="inp-tmnv" name="phongban" id="phongban">
-                            <option value=""></option>
-                                <option value=""></option>
+                        <select class="inp-tmnv" name="phòng ban" id="phòng ban">
+                                <option value=""></option>   
+                                <option value="Phong A">Phong Đào Tạo</option>
                         </select>
+                        <div class="div" class="text-danger error-text email_err"></div>
                     </form>
                     <div class="button-group">
-                        <button class="text-huy-tmnv">Hủy</button>
-                        <button class="text-xacnhan-tmnv js-buy-ticket">Xác nhận</button>
-                       
+                        <a href="./qlnv.html"><button class="text-huy-tmnv">Hủy</button></a> 
+                        <button onclick="checkvalidate();addnew()" class="text-xacnhan-tmnv js-buy-ticket">Xác nhận</button>
+                       <style>
+                        .div{
+                            color:red;
+                            margin-left: 20%;
+                        }
+                       </style>
                     </div>
                 </div>
             </div>
@@ -106,7 +118,6 @@
         const modal = document.querySelector('.js-modal');
         const modalContainer = document.querySelector('.js-modal-container')
         const modalClose = document.querySelector('.js-modal-close');
-
         function showBuyTickets(){
             modal.classList.add('open')
         }
@@ -127,6 +138,35 @@
         {
             event.stopPropagation()
         })
+
+        function checkvalidate(){
+            let inputselement = document.querySelectorAll('.inp-tmnv')
+            let errs = document.querySelectorAll('.div')
+            for (let i=0;i<inputselement.length;i++){
+                if (inputselement[i].value === ""){
+                    const para = document.createElement("div")
+                    const textpara = document.createTextNode(`Vui long nhap `+ inputselement[i].name)
+                    para.appendChild(textpara) 
+                    errs[i].appendChild(para)
+                }
+                console.log()
+                
+            }
+        }
+        function addnew(){
+            let inputselement = document.querySelectorAll('.inp-tmnv')
+            let listnv = localStorage.getItem("listnv") ? JSON.parse(localStorage.getItem("listnv")) : []
+                listnv.push({
+                    hoten:inputselement[0].value,
+                    gioitinh:inputselement[1].value,
+                    cmnd:inputselement[2].value,
+                    email:inputselement[3].value,
+                    chucvu:inputselement[4].value,
+                    phongban:inputselement[5].value
+                })
+                localStorage.setItem("listnv",JSON.stringify(listnv))
+        }
+        
     </script>
 </body>
 </html>

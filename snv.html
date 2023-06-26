@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-  
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sửa nhân viên</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/snv.css">
     <link rel="stylesheet" href="./themify-icons/themify-icons.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
+
 </head>
+
 <body>
     <div class="wrap">
         <nav class="sidebar">
@@ -21,16 +23,16 @@
                     <span class="image">
                         <img src="css/img/download.jpeg" alt="">
                     </span>
-                </div>   
+                </div>
             </header>
             <div class="menu-bar">
                 <div class="icon-home">
                     <img src="css/img/3910613 1.png" alt="">
                 </div>
-                <div class="icon-logout">
-                   <img src="css/img/logout-8 1.png" alt="">
-                </div>
-            </div> 
+                <a href="./qlnv.html" class="icon-logout">
+                    <img src="css/img/5302613 1.png" alt="">
+                </a>
+            </div>
         </nav>
         <div class="home-page">
             <h1>Sửa nhân viên</h1>
@@ -42,7 +44,8 @@
                         <div class="label-name">
                             <label>Họ tên:</label>
                         </div>
-                        <input class="inp-tmnv" type="text" name="hoten" id="" >
+                        <input class="inp-tmnv" type="text" name="hoten" id="">
+                        <div class="div" class="text-danger error-text email_err"></div>
 
                         <div class="label-name">
                             <label>Giới tính:</label>
@@ -52,11 +55,13 @@
                             <option value="Nam">Nam</option>
                             <option value="Nữ">Nữ</option>
                         </select>
+                        <div class="div" class="text-danger error-text email_err"></div>
 
                         <div class="label-name">
                             <label>CMND:</label>
                         </div>
                         <input class="inp-tmnv" type="number" name="cmnd" id="">
+                        <div class="div" class="text-danger error-text email_err"></div>
                     </form>
                 </div>
                 <div class="col-sm right-inf-tmnv">
@@ -64,24 +69,27 @@
                         <div class="label-name">
                             <label>Email:</label>
                         </div>
-                        <input class="inp-tmnv" type="text" name="hoten" id="" >
+                        <input class="inp-tmnv" type="text" name="Email" id="">
+                        <div class="div" class="text-danger error-text email_err"></div>
                         <div class="label-name">
                             <label>Chức vụ:</label>
                         </div>
                         <select class="inp-tmnv" name="chucvu" id="cv" onchange="checkcv()">
-                                <option value=""></option>
+                            <option value=""></option>
                         </select>
+                        <div class="div" class="text-danger error-text email_err"></div>
                         <div class="label-name">
                             <label>Phòng ban:</label>
                         </div>
                         <select class="inp-tmnv" name="phongban" id="phongban">
                             <option value=""></option>
-                                <option value=""></option>
+                            <option value=""></option>
                         </select>
+                        <div class="div" class="text-danger error-text email_err"></div>
                     </form>
                     <div class="button-group">
-                        <button class="text-huy-tmnv">Hủy</button>
-                        <button class="text-xacnhan-tmnv js-buy-ticket">Xác nhận</button>
+                        <a href="./qlnv.html"><button class="text-huy-tmnv">Hủy</button></a>
+                        <button onclick="checkvalidate()" class="text-xacnhan-tmnv js-buy-ticket">Xác nhận</button>
                     </div>
                 </div>
             </div>
@@ -99,33 +107,51 @@
             </div>
         </div>
     </div>
-
+    <style>
+        .div{
+            color:red;
+            margin-left: 20%;
+        }
+       </style>
     <script>
         const buyBtns = document.querySelectorAll('.js-buy-ticket');
         const modal = document.querySelector('.js-modal');
         const modalContainer = document.querySelector('.js-modal-container')
         const modalClose = document.querySelector('.js-modal-close');
 
-        function showBuyTickets(){
+        function showBuyTickets() {
             modal.classList.add('open')
         }
 
-        function hideBuyTickets(){
+        function hideBuyTickets() {
             modal.classList.remove('open')
         }
 
-        for (const buyBtn of buyBtns){
+        for (const buyBtn of buyBtns) {
             buyBtn.addEventListener('click', showBuyTickets)
         }
 
         modalClose.addEventListener('click', hideBuyTickets)
 
         modal.addEventListener('click', hideBuyTickets)
-        
-        modalContainer.addEventListener('click', function(event)
-        {
+
+        modalContainer.addEventListener('click', function (event) {
             event.stopPropagation()
         })
+        function checkvalidate(){
+            let inputselement = document.querySelectorAll('.inp-tmnv')
+            let errs = document.querySelectorAll('.div')
+            for (let i=0;i<inputselement.length;i++){
+                if (inputselement[i].value === ""){
+                    const para = document.createElement("div")
+                    const textpara = document.createTextNode(`Vui long nhap `+ inputselement[i].name)
+                    para.appendChild(textpara) 
+                    errs[i].appendChild(para)
+                }
+                
+            }
+        }
     </script>
 </body>
+
 </html>

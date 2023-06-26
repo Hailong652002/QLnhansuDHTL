@@ -14,7 +14,7 @@
    
     
 </head>
-<body>
+<body onload="rendernv()">
     <div class="wrap">
         <nav class="sidebar">
             <header>
@@ -28,18 +28,18 @@
                 <div class="icon-home">
                     <img src="css/img/3910613 1.png" alt="">
                 </div>
-                <div class="icon-logout">
+                <a href="./home.html" class="icon-logout">
                    <img src="css/img/5302613 1.png" alt="">
-                </div>
+                </a>
             </div> 
         </nav>
         <div class="home-page">
             <h1>Quản lý nhân viên</h1>
         </div>
 
-        <div class="btn-tnv">
+        <form action="tmnv.html" class="btn-tnv">
             <button class="nv">Thêm mới nhân viên</button>
-        </div>
+        </form>
         <div class="text-filter">
             <span>Lọc theo:</span>
             <label class="form-filter">
@@ -91,7 +91,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="">
+                    <tr class="nv1">
                         <th class="h1" scope="row">123</th>
                         <th class="h1" scope="row">Phạm Khánh Long</th>
                         <th class="h1" scope="row">Nam</th>
@@ -100,9 +100,9 @@
                         <th class="h1" scope="row">Abc</th>
                         <th class="h1" scope="row">xyz</th>
                         <th class="h1" scope="row">
-                            <button class="i-edit">
+                            <a href ="./snv.html"><button class="i-edit">
                                 <i class='bx bx-edit'></i>
-                            </button>
+                            </button></a>                           
                             <button class="i-rotate js-buy-ticket">
                                 <i class='bx bx-trash'></i>
                             </button>
@@ -121,8 +121,8 @@
             <div class="Update-successful">
               <h2>Bạn có chắc chắn muốn xóa không?</h2>
                 <div class="modal-buttons">
-                  <button class="confirm-btn">Xác nhận</button>
-                  <button class="cancel-btn">Hủy</button>
+                  <button onclick="deletenv()" class="confirm-btn">Xác nhận</button>
+                  <button onclick="hideBuyTickets()" class="cancel-btn">Hủy</button>
                 </div>
             </div>
         </div>
@@ -153,6 +153,44 @@
         {
             event.stopPropagation()
         })
+
+        
+        const confirm = document.querySelector('.confirm-btn')
+        
+        function deletenv(){
+            const nv1 = document.querySelector('.nv1')
+            nv1.classList.add('close')
+            modal.classList.remove('open');
+        }
+        function rendernv(){
+            let listnv = localStorage.getItem("listnv") ? JSON.parse(localStorage.getItem("listnv")) : []
+            const tabledata = document.querySelector('.list-dsnv')
+            const tbody = document.querySelector('tbody')
+            let data=``
+            listnv.map((value,index)=>{
+                    data += 
+                        `<th class="h1" scope="row">1</th>
+                        <th class="h1" scope="row">${value.hoten}</th>
+                        <th class="h1" scope="row">${value.gioitinh}</th>
+                        <th class="h1" scope="row">${value.cmnd}</th>
+                        <th class="h1" scope="row">${value.email}</th>
+                        <th class="h1" scope="row">${value.chucvu}</th>
+                        <th class="h1" scope="row">${value.phongban}</th>
+                        <th class="h1" scope="row">
+                            <a href ="./snv.html"><button class="i-edit">
+                                <i class='bx bx-edit'></i>
+                            </button></a>                           
+                            <button class="i-rotate js-buy-ticket">
+                                <i class='bx bx-trash'></i>
+                            </button>
+                        </th>`
+            })
+                   
+                    a = document.createElement('tr')
+                    a.innerHTML = data
+                    tbody.appendChild(a)
+        }
+        
     </script>
 </body>
 </html>

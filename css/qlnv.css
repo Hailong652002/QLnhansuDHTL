@@ -322,3 +322,7 @@ body {
         transform: translateY(0);
     }
 }
+
+.close{
+    display:none;
+}

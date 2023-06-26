@@ -28,7 +28,7 @@
                         <div class="login">
                             <h2>Đăng nhập</h2>
                             <div class="form-login">
-                                <form action="./home.html" method="post" class="form-login"
+                                <form action="./home.html" class="form-login"
                                     id='loginForm'>
                                     <div class="form-group">
                                         <i class="far fa-user"></i>
@@ -43,7 +43,7 @@
                                         <small class="text-danger error-text password_err"></small>
                                     </div>
                                         <div class="container-btn">
-                                            <button class="btn-login">Đăng nhập</button>
+                                            <button onclick="validateinput()" class="btn-login">Đăng nhập</button>
                                         </div>
                                 </form>
                             </div>
@@ -57,4 +57,18 @@
         </div>
     </div>
 </body>
+<script>
+    function validateinput(){
+        let formelement = document.querySelector('.form-login')
+        let inputselement = document.querySelectorAll('.form-input')
+        console.log(formelement)
+        for (let i=0;i<inputselement.length;i++){
+            if (inputselement[i].value === ""){
+                inputselement[i].parentElement.querySelector('.text-danger').innerText = `Vui long nhap ${inputselement[i].id}`
+                console.log(`vui long nhap ${inputselement[i].id}`)
+            }
+            else{}
+        }
+    }
+</script>
 </html>
