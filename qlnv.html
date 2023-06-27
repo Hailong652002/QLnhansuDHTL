@@ -62,7 +62,7 @@
                     <option value="" id="bb2" hidden ></option>
                     <option value="" id="bb3" hidden ></option>
             </select>
-            <span class="icon-reset">
+            <span onclick="reset()" class="icon-reset">
                 <a href="">
                     <img src="/css/img/reset.png" alt="">
                 </a>
@@ -169,7 +169,9 @@
             let data=``
             listnv.map((value,index)=>{
                     data += 
-                        `<th class="h1" scope="row">1</th>
+                        `
+                        <tr class="aa">
+                        <th class="h1" scope="row">1</th>
                         <th class="h1" scope="row">${value.hoten}</th>
                         <th class="h1" scope="row">${value.gioitinh}</th>
                         <th class="h1" scope="row">${value.cmnd}</th>
@@ -183,12 +185,17 @@
                             <button class="i-rotate js-buy-ticket">
                                 <i class='bx bx-trash'></i>
                             </button>
-                        </th>`
+                        </th>
+                        </tr>`
             })
-                   
-                    a = document.createElement('tr')
+
+                    let a = document.createElement('tr')
                     a.innerHTML = data
                     tbody.appendChild(a)
+                }          
+        
+        function reset(){
+            localStorage.clear()
         }
         
     </script>
